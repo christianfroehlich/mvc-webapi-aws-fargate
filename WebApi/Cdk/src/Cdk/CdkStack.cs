@@ -26,8 +26,7 @@ namespace Cdk
 
             var cluster = new Cluster(this, "api-ecs-cluster", new ClusterProps
             {
-                Vpc = vpc,
-                // ClusterName = "cfroehlich-testcluster"
+                Vpc = vpc
             });
 
             var task = new FargateTaskDefinition(this, "api-fargate-task", new FargateTaskDefinitionProps()
@@ -35,11 +34,6 @@ namespace Cdk
                 Cpu = 256,
                 MemoryLimitMiB = 512
             });
-            // task.NetworkMode = NetworkMode.BRIDGE;
-            // Network mode cannot be changed "Fargate tasks require the awsvpc network mode."
-            // https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ecs.FargateTaskDefinition.html#properties
-            // https://aws.amazon.com/blogs/compute/task-networking-in-aws-fargate/
-            // Containers can communicate on localhost
 
             var logGroup = new LogGroup(this, "loggroup-containers", new LogGroupProps()
             {

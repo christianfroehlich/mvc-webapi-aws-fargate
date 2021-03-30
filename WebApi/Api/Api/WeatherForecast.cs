@@ -1,6 +1,6 @@
 using System;
 
-namespace HelloAspNewCore3.Api
+namespace Api
 {
     public class WeatherForecast
     {
