@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>Api Test</title>
+</head>
+<body>
+<h1>Hello Cruel World</h1>
+<div id="response">
+</div>
+<script type="text/javascript">
+    async function getFromApi() {
+        let response = await fetch('http://localhost/api/weatherforecast');
+        let data = await response.json();
+        document.getElementById('response').innerText = JSON.stringify(data);
+    }
+    getFromApi();
+</script>
+</body>
+</html>
